@@ -1,10 +1,7 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-// The `/api/tags` endpoint
-
 router.get('/', (req, res) => {
-  // find all tags
   Tag.findAll({
     attributes: ["id", "tag_name"],
     include: [
@@ -24,7 +21,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
   Tag.findOne({
     where: {
       id: req.params.id,
